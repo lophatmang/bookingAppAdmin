@@ -1,0 +1,61 @@
+.addroom {
+  margin: 40px 20px;
+  h3 {
+    color: rgba(0, 0, 0, 0.267);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: #00000059 0px 5px 15px;
+  }
+
+  form {
+    margin: 40px 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+
+    select {
+      padding: 5px;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 20px;
+      input {
+        border-bottom: 1px solid black;
+        padding-bottom: 10px;
+      }
+      input:hover,
+      input:focus {
+        border-bottom: 1px solid black;
+      }
+      textarea {
+        border: 1px solid #00000071;
+        padding: 10px;
+      }
+      textarea:focus {
+        outline: auto;
+      }
+    }
+    .room {
+      grid-column: 1/3;
+      grid-row: 5/6;
+      ul {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        input {
+          margin-right: 10px;
+        }
+      }
+    }
+    button {
+      grid-row: 6/7;
+      padding: 20px;
+      width: 50%;
+      background-color: #008080;
+      color: white;
+      border-radius: 8px;
+    }
+  }
+}
