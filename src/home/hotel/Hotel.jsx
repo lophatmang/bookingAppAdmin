@@ -9,7 +9,9 @@ function Hotel() {
 
   useEffect(() => {
     async function api() {
-      const res = await fetch(`http://localhost:5000/admin/hotel?page=${page}`);
+      const res = await fetch(
+        `${process.env.REACT_APP_BACKEND_URL}/admin/hotel?page=${page}`
+      );
       setHotel(await res.json());
     }
     api();

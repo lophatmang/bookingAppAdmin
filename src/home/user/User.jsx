@@ -9,7 +9,9 @@ function User() {
 
   useEffect(() => {
     async function api() {
-      const res = await fetch("http://localhost:5000/admin/userList");
+      const res = await fetch(
+        `${process.env.REACT_APP_BACKEND_URL}/admin/userList`
+      );
       setUserList(await res.json());
     }
     api();

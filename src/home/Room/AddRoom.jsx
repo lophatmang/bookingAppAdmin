@@ -12,11 +12,13 @@ function AddRoom() {
 
   useEffect(() => {
     async function api() {
-      const res = await fetch(`http://localhost:5000/admin/hotel`);
+      const res = await fetch(
+        `${process.env.REACT_APP_BACKEND_URL}/admin/hotel`
+      );
       setHotelList(await res.json());
       if (edit) {
         const resRoom = await fetch(
-          `http://localhost:5000/admin/editRoom?id=${roomId}`
+          `${process.env.REACT_APP_BACKEND_URL}/admin/editRoom?id=${roomId}`
         );
         setRoom(await resRoom.json());
       }
@@ -36,11 +38,14 @@ function AddRoom() {
       hotel: e.target.hotel.value,
     };
 
-    const res = await fetch("http://localhost:5000/admin/addRoom", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ room: room, edit: edit, roomId: roomId }),
-    });
+    const res = await fetch(
+      `${process.env.REACT_APP_BACKEND_URL}/admin/addRoom`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ room: room, edit: edit, roomId: roomId }),
+      }
+    );
     const message = await res.json();
     if (!message.errorMessage) {
       await swal(`${message.message}`, ``, "success");

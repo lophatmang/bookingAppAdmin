@@ -28,7 +28,7 @@ function NewHotel() {
     if (edit) {
       async function api() {
         const res = await fetch(
-          `http://localhost:5000/admin/hotelEdit?id=${idHotel}`
+          `${process.env.REACT_APP_BACKEND_URL}/admin/hotelEdit?id=${idHotel}`
         );
         setHotel(await res.json());
       }
@@ -57,11 +57,14 @@ function NewHotel() {
       rating: 0,
     };
 
-    const res = await fetch("http://localhost:5000/admin/hotel", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ hotel: hotel, edit: edit, hotelId: idHotel }),
-    });
+    const res = await fetch(
+      `${process.env.REACT_APP_BACKEND_URL}/admin/hotel`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ hotel: hotel, edit: edit, hotelId: idHotel }),
+      }
+    );
     const message = await res.json();
     if (message) {
       await swal(`${message.message}`, ``, "success");

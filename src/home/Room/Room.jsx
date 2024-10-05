@@ -10,7 +10,7 @@ function Room() {
   useEffect(() => {
     async function api() {
       const res = await fetch(
-        `http://localhost:5000/admin/roomAll?page=${page}`
+        `${process.env.REACT_APP_BACKEND_URL}/admin/roomAll?page=${page}`
       );
       setRoom(await res.json());
     }

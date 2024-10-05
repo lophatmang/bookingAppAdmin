@@ -8,7 +8,9 @@ function Transaction() {
 
   useEffect(() => {
     async function api() {
-      const res = await fetch(`http://localhost:5000/admin/order?page=${page}`);
+      const res = await fetch(
+        `${process.env.REACT_APP_BACKEND_URL}/admin/order?page=${page}`
+      );
       setTransaction(await res.json());
     }
     api();

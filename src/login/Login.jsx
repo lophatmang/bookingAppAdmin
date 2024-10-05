@@ -36,11 +36,14 @@ export default function Login() {
       );
     }
 
-    const req = await fetch(`http://localhost:5000/admin/login`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(user),
-    });
+    const req = await fetch(
+      `${process.env.REACT_APP_BACKEND_URL}/admin/login`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(user),
+      }
+    );
     const message = await req.json();
 
     //đăng nhập thành công
