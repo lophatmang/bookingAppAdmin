@@ -28,7 +28,9 @@ function NewHotel() {
     if (edit) {
       async function api() {
         const res = await fetch(
-          `${process.env.REACT_APP_BACKEND_URL}/admin/hotelEdit?id=${idHotel}`
+          `${
+            import.meta.env.VITE_REACT_APP_BACKEND_URL
+          }/admin/hotelEdit?id=${idHotel}`
         );
         setHotel(await res.json());
       }
@@ -58,7 +60,7 @@ function NewHotel() {
     };
 
     const res = await fetch(
-      `${process.env.REACT_APP_BACKEND_URL}/admin/hotel`,
+      `${import.meta.env.VITE_REACT_APP_BACKEND_URL}/admin/hotel`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

@@ -3,10 +3,10 @@ import swal from "sweetalert";
 
 export async function loaderTransaction() {
   const resUser = await fetch(
-    `${process.env.REACT_APP_BACKEND_URL}/admin/user`
+    `${import.meta.env.VITE_REACT_APP_BACKEND_URL}/admin/user`
   );
   const resTransaction = await fetch(
-    `${process.env.REACT_APP_BACKEND_URL}/admin/transaction`
+    `${import.meta.env.VITE_REACT_APP_BACKEND_URL}/admin/transaction`
   );
   const user = await resUser.json();
   const transaction = await resTransaction.json();
@@ -22,7 +22,7 @@ export async function actionLockUser({ request }) {
   };
 
   const res = await fetch(
-    `${process.env.REACT_APP_BACKEND_URL}/admin/lockUser`,
+    `${import.meta.env.VITE_REACT_APP_BACKEND_URL}/admin/lockUser`,
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -47,7 +47,7 @@ export async function actionDeleteHotel({ request }) {
     buttons: ["NO", "YES"],
   }).then((yes) => {
     if (yes) {
-      fetch(`${process.env.REACT_APP_BACKEND_URL}/admin/deleteHotel`, {
+      fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_URL}/admin/deleteHotel`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ hotelId: hotelId }),
@@ -71,7 +71,9 @@ export async function actionDeleteHotel({ request }) {
 }
 
 export async function loaderRoom() {
-  const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/admin/room`);
+  const res = await fetch(
+    `${import.meta.env.VITE_REACT_APP_BACKEND_URL}/admin/room`
+  );
   const data = await res.json();
   return data;
 }
@@ -88,7 +90,7 @@ export async function actionDeleteRoom({ request }) {
     buttons: ["NO", "YES"],
   }).then((yes) => {
     if (yes) {
-      fetch(`${process.env.REACT_APP_BACKEND_URL}/admin/roomDelete`, {
+      fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_URL}/admin/roomDelete`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ roomId: roomId }),

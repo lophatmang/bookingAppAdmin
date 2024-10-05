@@ -10,7 +10,7 @@ function User() {
   useEffect(() => {
     async function api() {
       const res = await fetch(
-        `${process.env.REACT_APP_BACKEND_URL}/admin/userList`
+        `${import.meta.env.VITE_REACT_APP_BACKEND_URL}/admin/userList`
       );
       setUserList(await res.json());
     }

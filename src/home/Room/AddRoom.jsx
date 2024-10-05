@@ -13,12 +13,14 @@ function AddRoom() {
   useEffect(() => {
     async function api() {
       const res = await fetch(
-        `${process.env.REACT_APP_BACKEND_URL}/admin/hotel`
+        `${import.meta.env.VITE_REACT_APP_BACKEND_URL}/admin/hotel`
       );
       setHotelList(await res.json());
       if (edit) {
         const resRoom = await fetch(
-          `${process.env.REACT_APP_BACKEND_URL}/admin/editRoom?id=${roomId}`
+          `${
+            import.meta.env.VITE_REACT_APP_BACKEND_URL
+          }/admin/editRoom?id=${roomId}`
         );
         setRoom(await resRoom.json());
       }
@@ -39,7 +41,7 @@ function AddRoom() {
     };
 
     const res = await fetch(
-      `${process.env.REACT_APP_BACKEND_URL}/admin/addRoom`,
+      `${import.meta.env.VITE_REACT_APP_BACKEND_URL}/admin/addRoom`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

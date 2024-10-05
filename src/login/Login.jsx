@@ -37,7 +37,7 @@ export default function Login() {
     }
 
     const req = await fetch(
-      `${process.env.REACT_APP_BACKEND_URL}/admin/login`,
+      `${import.meta.env.VITE_REACT_APP_BACKEND_URL}/admin/login`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

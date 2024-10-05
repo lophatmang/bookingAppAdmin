@@ -10,7 +10,7 @@ function TransactionAll() {
   useEffect(() => {
     async function api() {
       const res = await fetch(
-        `${process.env.REACT_APP_BACKEND_URL}/admin/order?page=all`
+        `${import.meta.env.VITE_REACT_APP_BACKEND_URL}/admin/order?page=all`
       );
       setTransaction(await res.json());
     }
