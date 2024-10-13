@@ -3,7 +3,7 @@
   /* top: calc(50% - 32px); */
   left: calc(50% - 32px);
   display: inline-block;
-  background: #ff5b5b;
+  background: #20cca5;
   width: 64px;
   height: 64px;
   box-sizing: border-box;
@@ -50,7 +50,7 @@
 }
 
 #inpLock:checked + label {
-  background: #20cca5;
+  background: #ff5b5b;
 }
 
 #inpLock:checked + label svg {
