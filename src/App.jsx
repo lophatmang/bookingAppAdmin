@@ -22,6 +22,7 @@ import NewHotel from "./home/hotel/NewHotel";
 import Room from "./home/Room/Room";
 import AddRoom from "./home/Room/AddRoom";
 import TransactionAll from "./home/transaction/TransactionAll";
+
 library.add(fas);
 
 const router = createBrowserRouter([
